@@ -12,20 +12,20 @@ chances = ceil(log2(upper_bound - lower_bound + 1))
 
 print("You have", chances, "chances to guess the number!")
 
-while chances > 0:
+guess_counter = 0
+
+while guess_counter < chances:
+
+    guess_counter += 1
 
     user_guess = int(input("try to guess the number: "))
 
     if user_guess == number_to_be_guessed:
         print("congratulations! you guessed the number! YOU WIN!!!")
         break
-
-    if user_guess > number_to_be_guessed:
+    elif guess_counter == chances and user_guess != number_to_be_guessed:
+        print("sorry! YOU LOSE...")
+    elif user_guess > number_to_be_guessed:
         print("sorry! you guessed too high...")
     elif user_guess < number_to_be_guessed:
         print("sorry! you guessed too small...")
-
-    chances -= 1
-
-else:
-    print("sorry! YOU LOSE...")
